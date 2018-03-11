@@ -1,3 +1,15 @@
+# Reference
+[see gitnicolas](https://github.com/gitnicolas/webdavjs)
+
+# Nextcloud tuning
+- load the content of this git to the /var/www/html directory of your nextcloud install in the webdav directory
+- the name of the directory 'webdav' is 'hard code' cannot be changed unless code is changed
+- browse to https://<your server>/webdav/index.html (from a non nextcloud logged fresh session)
+- Enter your credentials and you should be able to browse
+ 
+# Changes compared to WebDAVFileTree
+- added the "OCS-APIRequest: true" header in the 
+
 # WebDAVFileTree
 html and javascript application able to display the content of a remote webdav directory on a html page,
 and upload or delete files.
