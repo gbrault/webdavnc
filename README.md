@@ -8,7 +8,9 @@
 - Enter your credentials and you should be able to browse
  
 # Changes compared to WebDAVFileTree
-- added the "OCS-APIRequest: true" header in the 
+- added the "OCS-APIRequest: true" header in the davclient.js (see _getRequest  member)
+- added rootURI to webdavLayer.js in connect member
+- modified extractDirContent to detect directories and name correctly the root directory
 
 # WebDAVFileTree
 html and javascript application able to display the content of a remote webdav directory on a html page,
