@@ -2,7 +2,7 @@
 [see gitnicolas](https://github.com/gitnicolas/webdavjs)
 
 # Nextcloud tuning
-- load the content of this git to the /var/www/html directory of your nextcloud install in the webdav directory
+- load the content of this git to the /var/www/html directory of your nextcloud install in the webdav directory to create there
 - the name of the directory 'webdav' is 'hard coded' cannot be changed unless code is changed
 - browse to https://<your server>/webdav/index.html (from a non nextcloud logged fresh session and full url)
 - Enter your credentials and you should be able to browse
