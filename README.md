@@ -2,7 +2,8 @@
 [see gitnicolas](https://github.com/gitnicolas/webdavjs)
 
 # Nextcloud tuning
-- load the content of this git to the /var/www/html directory of your nextcloud install in the webdav directory to create there
+- create a 'webdav' directory in /var/www/html directory of your nextcloud install
+- load the content of this git to the 'webdav' directory
 - the name of the directory 'webdav' is 'hard coded' cannot be changed unless code is changed
 - browse to https://<your server>/webdav/index.html (from a non nextcloud logged fresh session and full url)
 - Enter your credentials and you should be able to browse
@@ -13,6 +14,14 @@
   - if you use a session where you have logged to nextcloud, it doesn't work???
 - added rootURI to webdavLayer.js in connect member
 - modified extractDirContent to detect directories and name correctly the root directory
+
+# To Do
+- the idea reusing this code is 
+  - to build a file browser for nexcloud webapps
+  - to have a javascript API interacting with files
+- Should open as a Dialog
+- Have to find a way to communicate the selected file with the caller (and filter for files searched)
+- Correct this issue for already opened session with nextcloud
 
 # WebDAVFileTree
 html and javascript application able to display the content of a remote webdav directory on a html page,
