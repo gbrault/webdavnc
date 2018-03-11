@@ -3,12 +3,14 @@
 
 # Nextcloud tuning
 - load the content of this git to the /var/www/html directory of your nextcloud install in the webdav directory
-- the name of the directory 'webdav' is 'hard code' cannot be changed unless code is changed
-- browse to https://<your server>/webdav/index.html (from a non nextcloud logged fresh session)
+- the name of the directory 'webdav' is 'hard coded' cannot be changed unless code is changed
+- browse to https://<your server>/webdav/index.html (from a non nextcloud logged fresh session and full url)
 - Enter your credentials and you should be able to browse
  
 # Changes compared to WebDAVFileTree
 - added the "OCS-APIRequest: true" header in the davclient.js (see _getRequest  member)
+  - this allows to connect to a nextcloud with a fresh session
+  - if you use a session where you have logged to nextcloud, it doesn't work???
 - added rootURI to webdavLayer.js in connect member
 - modified extractDirContent to detect directories and name correctly the root directory
 
