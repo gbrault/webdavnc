@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>Webdav Share</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+		<script src="lib/jquery-2.2.0.min.js" type="text/javascript"></script>
+
+		<script src="lib/jqueryFileTree/jquery.easing.js" type="text/javascript"></script>
+		<script src="lib/jqueryFileTree/jqueryFileTree.js" type="text/javascript"></script>
+		<link href="lib/jqueryFileTree/jqueryFileTree.css" rel="stylesheet" type="text/css" media="screen" />
+
+		<script src="lib/jQueryContextMenu/jquery.ui.position.min.js" type="text/javascript"></script>
+		<script src="lib/jQueryContextMenu/jquery.contextMenu.min.js" type="text/javascript"></script>
+		<link href="lib/jQueryContextMenu/jquery.contextMenu.min.css" rel="stylesheet" type="text/css" media="screen" />
+
+		<script src="lib/davclient.js" type="text/javascript"></script>
+
+        <script src="js/webdavLayer.js" type="text/javascript"></script>
+		<script src="js/modalWindow.js" type="text/javascript"></script>
+		<script src="js/main.js" type="text/javascript"></script>
+		<link href="css/main.css" rel="stylesheet" type="text/css" media="screen" />
+    </head>
+	<body>
+		<h1>WebDAV Share</h1>
+        <div id='loginMenu' class='menu floatingMenu'>
+            <h2 class='menuTitle'>Login</h2>
+            <div class='menuContent'>
+                <form action='#' onsubmit="webdavUI.connect(); return false">
+                    <label for="webdavUser">Username :</label>
+                    <input id='webdavUser' type='text' size='15' /><br />
+                    <label for="webdavPassword">Password :</label>
+                    <input id='webdavPassword' type='password' size='15' /><br />
+                    <label for="webdavRootURI">RootURI :</label>
+                    <input id='webdavRootURI' type='text' value='/remote.php/webdav/' size='20' /><br />
+                    <label for="webdavRoot">RootDir :</label>
+                    <input id='webdavRoot' type='text' value='/' size='20' /><br />
+                    <input type='submit' value='Connect' />
+                </form>
+            </div>
+        </div>
+        <div id='actionMenu' class='floatingMenu'>
+            <div id='webdavCredentials' class='menu'>
+                <h2 class='menuTitle'>Credentials</h2>
+                <div class='menuContent'>
+                    Connected as <span class='sessionUserName credentialsInfo'></span><br />
+                    in <span class='sessionRootDir credentialsInfo'></span><br />
+                    <input type='button' value='Refresh' onClick='webdavUI.refreshFileTree()' />
+                    <input type='button' value='Disconnect' onClick='webdavUI.disconnect()' />
+                </div>
+            </div>
+            <div id='Clipboard' class='menu'>
+                <h2 class="menuTitle">Clipboard</h2>
+                <div class='menuContent'>
+                    <label for="filesInput">File cut :</label><br />
+                    <input id='fileCut' type='text' value='' size='40' readonly /><br />
+                    <input type='button' value='Move to rootDir' onClick='webdavUI.pasteInRootDir()' />
+                    <input type='button' value='Clear ClipBoard' onClick='webdavUI.clearClipboard()' />
+                </div>
+            </div>
+            <div id='uploadForm' class='menu'>
+                <h2 class="menuTitle">Upload</h2>
+                <div class='menuContent'>
+                    <form action='#' onsubmit="webdavUI.uploadFiles(); return false">
+                        <label for="filesInput">Files to upload :</label><br />
+                        <input id="filesInput" type="file" multiple="multiple" /><br />
+                        <label for="uploadRemoteDir">Remote directory :</label><br />
+                        <input id='uploadRemoteDir' type='text' value='' size='40' readonly /><br />
+                        <input type='submit' value="Upload" />
+                    </form>
+                </div>
+            </div>
+        </div>
+		<div id='main'>
+			<div id='fileTree' class='fileTree'></div>
+		</div>
+	    <div id="overlay"></div>
+	    <div id="modalWindow" class='menu'>
+		    <h2 class="menuTitle">
+			    <span id="modalWindowTitle"></span><span id="modalWindowClose">X</span>
+		    </h2>
+		    <div id="modalWindowContent" class="menuContent"></div>
+	    </div>
+		
+	</body>
+	
+</html>
