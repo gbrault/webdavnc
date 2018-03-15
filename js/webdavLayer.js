@@ -196,7 +196,7 @@ var webdavLayer = (function($, davlib) {
         if (debug) console.log('Upload of ' + p.fileName + ' in ' + p.remoteDir);
         try {
             var req = new XMLHttpRequest();
-            req.open('PUT', protocol + '://' + host + ':' + port + p.remoteDir + p.fileName, true);
+            req.open('PUT', protocol + '://' + host + ':' + port + p.rootURI + p.remoteDir + p.fileName, true);
             req.setRequestHeader('Authorization', 'Basic ' + btoa(username + ':' + password));
             req.onreadystatechange = function() {
                 if (req.readyState == 4) {
