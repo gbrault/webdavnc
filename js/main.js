@@ -166,7 +166,8 @@ var webdavUI = (function($, webdavLayer, queryString, modalWindow) {
         jQuery.each(jQuery('#filesInput')[0].files, function(i, file) {
             var remoteDir = getFormRootDir() + $('#uploadRemoteDir').val();
             nbFiles++;
-            webdavLayer.uploadFile({
+            webdavLayer.uploadFile({            
+                rootURI: $('#webdavRootURI').val(),
                 remoteDir: remoteDir,
                 fileName: file.name,
                 fileData: file,
