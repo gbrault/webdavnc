@@ -18,7 +18,7 @@
 var webdavLayer = (function($, davlib) {
 
     var client = new davlib.DavClient();
-    var host, port, protocol, username, password;
+    var host, root, port, protocol, username, password;
     var debug = false;
 
     /**
@@ -26,6 +26,7 @@ var webdavLayer = (function($, davlib) {
     
         p.protocol - protocol part of URLs (optional, defaults to http)
         p.host - the host name or IP
+	p.rootURI - the server side processor address
         p.port - HTTP port of the host (optional, defaults to 80)
         p.username - the username for authorization (only Basic auth is supported at that time)
         p.password - the password to use
@@ -42,6 +43,7 @@ var webdavLayer = (function($, davlib) {
         protocol = p.protocol;
         username = p.username;
         password = p.password;
+	root = p.rootURI;
         client.initialize(host+p.rootURI, port, protocol, username, password);
         listDir({
             dir: p.rootDir,
@@ -220,10 +222,10 @@ var webdavLayer = (function($, davlib) {
     function openFile(file) {
         if (debug) console.log('openFile() - File : ' + file);
         try {
-            window.open(protocol + '://' + username + ':' + password + '@'+ host + ':' + port + file, '_blank');
+            window.open(protocol + '://' + username + ':' + password + '@'+ host + ':' + port + root + file, '_blank');
         } catch (err) {
             console.log(err);
-            window.open(protocol + '://' + host + ':' + port + file, '_blank');
+            window.open(protocol + '://' + host + ':' + port + root + file, '_blank');
         }
     }
 
